@@ -1,6 +1,8 @@
+import Sidebar from "../components/Sidebar";
+import styles from './AppLayout.module.css'
 function AppLayout() {
   return (
-    <div><h1>AppLayout</h1></div>
+    <div className={styles.app}><Sidebar /></div>
   )
 }
 export default AppLayout;
