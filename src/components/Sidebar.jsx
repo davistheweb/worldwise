@@ -10,7 +10,9 @@ function Sidebar() {
       <p>List of cities</p>
 
       <footer className={styles.footer}>
-        <p className={styles.copywrite}>&copy; {new Date().getFullYear()} by WorldWise Inc. </p>
+        <p className={styles.copywrite}>
+          &copy; {new Date().getFullYear()} by WorldWise Inc.{" "}
+        </p>
       </footer>
     </div>
   );

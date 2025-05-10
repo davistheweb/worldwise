@@ -1,7 +1,5 @@
 function AppNav() {
-  return (
-    <div>AppNav</div>
-  )
+  return <div>AppNav</div>;
 }
 
-export default AppNav; 
+export default AppNav;
