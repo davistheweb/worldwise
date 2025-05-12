@@ -1,5 +1,5 @@
-import { useFormatDate } from "../hooks";
-import styles from "./CityItem.module.css";
+import { useFormatDate } from "@hooks";
+import styles from "@styles/CityItem.module.css";
 export default function CityItem({ city }) {
   const { cityName, emoji, date } = city;
 

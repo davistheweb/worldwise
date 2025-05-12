@@ -1,4 +1,4 @@
-import styles from "./Sidebar.module.css";
+import styles from "@styles/Sidebar.module.css";
 import Logo from "./Logo";
 import AppNav from "./AppNav";
 import { Outlet } from "react-router";

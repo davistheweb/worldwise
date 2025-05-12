@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as BR, Route, Routes } from "react-router";
-import Product from "./pages/Product";
-import Pricing from "./pages/Pricing";
-import Homepage from "./pages/Homepage";
-import PageNotFound from "./pages/PageNotFound";
-import AppLayout from "./pages/AppLayout";
-import Login from "./pages/Login";
-import CityList from "./components/CityList";
-import CountriesList from "./components/CountriesList";
+import Product from "@pages/Product";
+import Pricing from "@pages/Pricing";
+import Homepage from "@pages/Homepage";
+import PageNotFound from "@pages/PageNotFound";
+import AppLayout from "@pages/AppLayout";
+import Login from "@pages/Login";
+import CityList from "@components/CityList";
+import CountriesList from "@components/CountriesList";
 
 const BASE_URL = "http://localhost:8080";
 
