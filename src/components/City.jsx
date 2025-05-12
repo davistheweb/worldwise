@@ -11,9 +11,9 @@ const formatDate = (date) =>
 
 function City() {
   const { id } = useParams();
-   const [searchParams, setSearchParams] = useSearchParams();
-   const lat = searchParams.get("lat"),
-     lng = searchParams.get("lng");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const lat = searchParams.get("lat"),
+    lng = searchParams.get("lng");
 
   // TEMP DATA
   const currentCity = {
@@ -28,7 +28,9 @@ function City() {
   return (
     <div>
       <h1>City {id}</h1>
-      <p>Position: {lat}, {lng}</p>
+      <p>
+        Position: {lat}, {lng}
+      </p>
     </div>
   );
 
