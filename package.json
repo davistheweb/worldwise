@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier . --write",
-    "server": "json-server --watch data/cities.json --port 8080 --delay 1000"
+    "server": "json-server --watch data/cities.json --port 8080 --delay 200"
   },
   "dependencies": {
     "json-server": "0.17.3",
