@@ -2,3 +2,7 @@ node_modules
 build
 dist
 .idea
+pnpm-lock.yaml
+pnpm-workspace.yaml
+package.json
+.gitignore
