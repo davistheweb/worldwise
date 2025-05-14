@@ -1,10 +1,10 @@
 import { useReducer, createContext } from "react";
-import FAKE_USER from "@constants";
+import { FAKE_USER } from "@constants";
 const AuthContext = createContext();
 
 const initialState = {
   user: null,
-  isAunticated: false,
+  isAuthenticated: false,
 };
 
 function reducer(state, action) {
@@ -13,22 +13,24 @@ function reducer(state, action) {
       return {
         ...state,
         user: action.payload,
-        isAunticated: true,
+        isAuthenticated: true,
       };
     case "logout":
       return {
         ...state,
         user: null,
-        isAunticated: false,
+        isAuthenticated: false,
       };
     default:
       throw new Error("Unknown action");
   }
 }
 
-
 function AuthProvider({ children }) {
-  const [{ user, isAunticated }, dispatch] = useReducer(reducer, initialState);
+  const [{ user, isAuthenticated }, dispatch] = useReducer(
+    reducer,
+    initialState,
+  );
   function login(email, password) {
     if (email === FAKE_USER.email && password === FAKE_USER.password)
       dispatch({ type: "login", payload: FAKE_USER });
@@ -37,7 +39,7 @@ function AuthProvider({ children }) {
     dispatch({ type: "logout" });
   }
   return (
-    <AuthContext.Provider value={{ user, isAunticated, login, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

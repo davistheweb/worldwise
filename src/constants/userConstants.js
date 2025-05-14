@@ -1,5 +1,5 @@
 const FAKE_USER = {
-  name: "Josiah Davis",
+  name: "Josiah",
   email: "josiahdave001@gmail.com",
   password: "helloworld",
   avatar:
