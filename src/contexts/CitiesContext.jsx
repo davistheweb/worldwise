@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { createContext, useEffect } from "react";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const CitiesContext = createContext();
 
