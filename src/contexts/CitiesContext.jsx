@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useEffect } from "react";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -53,7 +53,7 @@ function reducer(state, action) {
 }
 
 function CitiesProvider({ children }) {
-  const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
+  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -103,22 +103,27 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await res.json();
-     dispatch({ type: "city/created", payload: data });
+      dispatch({ type: "city/created", payload: data });
     } catch {
-      alert("There was an error creating city");
+      dispatch({
+        type: "rejected",
+        payload: "There was an error creating city...",
+      });
     }
   }
 
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      setIsLoading((prev) => !prev);
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
-      setCities((cities) => cities.filter((city) => city.id !== id));
+      dispatch({ type: "city/deleted", payload: id });
     } catch {
-      alert("There was an error deleting city");
+     dispatch({
+       type: "rejected",
+       payload: "There was an error deleting city...",
+     });
     }
   }
   return (
@@ -127,6 +132,7 @@ function CitiesProvider({ children }) {
         cities,
         isLoading,
         currentCity,
+        error,
         getCity,
         createCity,
         deleteCity,
