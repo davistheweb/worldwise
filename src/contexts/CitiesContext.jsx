@@ -55,12 +55,9 @@ function reducer(state, action) {
 function CitiesProvider({ children }) {
   const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
     reducer,
-    initialState
+    initialState,
   );
-  /* const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentCity, setCurrentCity] = useState({});
- */
+
   useEffect(function () {
     async function fetchCities() {
       dispatch({ type: "loading" });
@@ -79,6 +76,7 @@ function CitiesProvider({ children }) {
   }, []);
 
   async function getCity(id) {
+    if (Number(id) === currentCity.id) return;
     dispatch({ type: "loading" });
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
@@ -120,10 +118,10 @@ function CitiesProvider({ children }) {
       });
       dispatch({ type: "city/deleted", payload: id });
     } catch {
-     dispatch({
-       type: "rejected",
-       payload: "There was an error deleting city...",
-     });
+      dispatch({
+        type: "rejected",
+        payload: "There was an error deleting city...",
+      });
     }
   }
   return (
